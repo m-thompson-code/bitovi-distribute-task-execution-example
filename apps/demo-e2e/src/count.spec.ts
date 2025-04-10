@@ -13,7 +13,7 @@ test('has count title 0', async ({ page }) => {
   console.log('innerText2', innerText);
   expect(innerText2).toContain('1');
 
-  await page.goto('/count/1');
+  await page.goto('/count/2');
 
   const innerText3 = await page.locator('h1.header').innerText();
   console.log('innerText3', innerText);
