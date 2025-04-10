@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 
 const getCount = (value: unknown): number => {
@@ -15,12 +16,21 @@ const getCount = (value: unknown): number => {
 };
 
 export default function AboutComponent() {
+  const [loaded, setLoaded] = useState(false);
   const params = useParams();
   const count = getCount(params.count);
 
+  useEffect(() => {
+    const timeoutRef = setTimeout(() => {
+      setLoaded(true);
+    }, 5_000);
+
+    return () => clearTimeout(timeoutRef);
+  }, []);
+
   return (
     <div>
-      <h1>The current number is {count}</h1>
+      {loaded ? <h1 className="header">The current number is {count}</h1> : <h1 className="loader">Loading...</h1>}
       <Link role="button" to={`/count/${count - 1}`}>
         Previous Number
       </Link>
