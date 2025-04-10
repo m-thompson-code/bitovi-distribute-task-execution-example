@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router';
 
 const getCount = (value: unknown): number => {
@@ -19,14 +19,24 @@ export default function AboutComponent() {
   const [loaded, setLoaded] = useState(false);
   const params = useParams();
   const count = getCount(params.count);
+  const countRef = useRef<null | number>(null);
 
   useEffect(() => {
+    if (countRef.current !== count) {
+      setLoaded(false);
+      countRef.current = count;
+    }
+
+    if (loaded) {
+      return;
+    }
+
     const timeoutRef = setTimeout(() => {
       setLoaded(true);
-    }, 5_000);
+    }, 1_000);
 
     return () => clearTimeout(timeoutRef);
-  }, []);
+  }, [loaded, count]);
 
   return (
     <div>
