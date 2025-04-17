@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@generate-stress-tests-config": ["./generate-stress-tests-config.json"]
+    },
     "composite": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
