@@ -11,6 +11,9 @@
     },
     {
       "path": "./apps/generate-stress-tests"
+    },
+    {
+      "path": "./apps/temp"
     }
   ]
 }
