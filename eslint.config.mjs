@@ -20,11 +20,14 @@ export default [
         'error',
         {
           enforceBuildableLibDependency: true,
-          allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
+          allow: [
+            '^@bitovi-distribute-task-execution-example/config$',
+            '^.*/eslint(\\.base)?\\.config\\.[cm]?js$'
+          ],
           depConstraints: [
             {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
+              "sourceTag": "*",
+              "onlyDependOnLibsWithTags": ["type:config"]
             },
           ],
         },

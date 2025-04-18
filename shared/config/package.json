@@ -1,0 +1,15 @@
+{
+  "name": "@bitovi-distribute-task-execution-example/config",
+  "version": "0.0.1",
+  "private": true,
+  "sideEffects": false,
+  "types": "index.d.ts",
+  "exports": {
+    "import": "./index.mjs",
+    "require": "./index.cjs"
+  },
+  "nx": {
+    "name": "config",
+    "tags": ["type:config"]
+  }
+}

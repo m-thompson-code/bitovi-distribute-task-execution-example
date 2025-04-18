@@ -4,6 +4,7 @@
   "private": true,
   "nx": {
     "name": "generate-stress-tests",
+    "tags": ["scope:demo"],
     "targets": {
       "build": {
         "executor": "@nx/esbuild:esbuild",

@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "nx": {
+    "tags": ["scope:demo"],
     "implicitDependencies": [
       "demo",
       "generate-stress-tests"
@@ -13,6 +14,10 @@
           {
             "target": "serve",
             "projects": "generate-stress-tests"
+          },
+          {
+            "target": "build",
+            "projects": "config"
           }
         ]
       }

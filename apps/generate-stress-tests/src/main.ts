@@ -1,7 +1,7 @@
 import { emptyDir, ensureDir, writeFile } from "fs-extra";
 import { join, resolve } from "path";
 import { workspaceRoot } from '@nx/devkit';
-import CONFIG from '@generate-stress-tests-config';
+import { CONFIG } from '@bitovi-distribute-task-execution-example/config';
 
 const GENERATED_ROOT = resolve(workspaceRoot, 'apps/demo-e2e/src/generated');
 

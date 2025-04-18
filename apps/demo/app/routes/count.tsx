@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router';
-import CONFIG from '@generate-stress-tests-config';
+import { CONFIG } from '@bitovi-distribute-task-execution-example/config';
 
 const getCount = (value: unknown): number => {
   if (!value) {

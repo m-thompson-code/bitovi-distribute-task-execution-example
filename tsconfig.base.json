@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@generate-stress-tests-config": ["./generate-stress-tests-config.json"]
-    },
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "resolveJsonModule": true,
     "composite": true,
     "declarationMap": true,

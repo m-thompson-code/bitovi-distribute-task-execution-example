@@ -8,7 +8,8 @@
   },
   "sideEffects": false,
   "nx": {
-    "name": "demo"
+    "name": "demo",
+    "tags": ["scope:demo"]
   },
   "dependencies": {
     "@react-router/node": "^7.2.0",
