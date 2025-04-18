@@ -1,6 +1,7 @@
 import { emptyDir, ensureDir, writeFile } from "fs-extra";
 import { join, resolve } from "path";
 import { workspaceRoot } from '@nx/devkit';
+import CONFIG from '@generate-stress-tests-config';
 
 const GENERATED_ROOT = resolve(workspaceRoot, 'apps/demo-e2e/src/generated');
 
@@ -22,7 +23,7 @@ const main = async () => {
   await ensureDir(GENERATED_ROOT);
   await emptyDir(GENERATED_ROOT);
 
-  const promises = Array.from({ length: 10 }, (_, i) => i)
+  const promises = Array.from({ length: CONFIG.numberOfTests }, (_, i) => i)
     .map(index => writeFile(join(GENERATED_ROOT, `generated-${index}.spec.ts`), generateE2ETest(index)));
 
   await Promise.all(promises);

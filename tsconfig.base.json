@@ -4,6 +4,7 @@
     "paths": {
       "@generate-stress-tests-config": ["./generate-stress-tests-config.json"]
     },
+    "resolveJsonModule": true,
     "composite": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,

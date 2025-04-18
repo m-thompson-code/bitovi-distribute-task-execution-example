@@ -6,7 +6,6 @@
       "@generate-stress-tests-config": ["../../generate-stress-tests-config.json"]
     },
     "allowJs": true,
-    "resolveJsonModule": true,
     "outDir": "out-tsc/playwright",
     "sourceMap": false
   },
