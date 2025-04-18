@@ -3,6 +3,19 @@ import { nxE2EPreset } from '@nx/playwright/preset';
 import { workspaceRoot } from '@nx/devkit';
 import * as CONFIG from '@generate-stress-tests-config';
 
+/*
+"targets": {
+      "e2e": {
+        "dependsOn": [
+          {
+            "target": "serve",
+            "projects": "generate-stress-tests"
+          }
+        ]
+      }
+    }
+*/
+
 // For CI, you may want to set BASE_URL to the deployed application.
 const baseURL = process.env['BASE_URL'] || 'http://localhost:4200';
 

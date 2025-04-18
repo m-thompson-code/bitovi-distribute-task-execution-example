@@ -6,16 +6,6 @@
     "implicitDependencies": [
       "demo",
       "generate-stress-tests"
-    ],
-    "targets": {
-      "e2e": {
-        "dependsOn": [
-          {
-            "target": "serve",
-            "projects": "generate-stress-tests"
-          }
-        ]
-      }
-    }
+    ]
   }
 }

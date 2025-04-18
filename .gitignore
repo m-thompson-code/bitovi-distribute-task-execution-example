@@ -1,7 +1,7 @@
 # See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # generated e2e tests
-apps/demo-e2e/src/generated
+# apps/demo-e2e/src/generated
 
 # compiled output
 dist
