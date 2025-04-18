@@ -26,8 +26,6 @@ const main = async () => {
     .map(index => writeFile(join(GENERATED_ROOT, `generated-${index}.spec.ts`), generateE2ETest(index)));
 
   await Promise.all(promises);
-
-  console.log('finished');
 };
 
 main();

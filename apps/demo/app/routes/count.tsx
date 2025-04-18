@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router';
-// import CONFIG from '@generate-stress-tests-config';
+import CONFIG from '@generate-stress-tests-config';
 
 const getCount = (value: unknown): number => {
   if (!value) {
@@ -34,7 +34,7 @@ export default function AboutComponent() {
 
     const timeoutRef = setTimeout(() => {
       setLoaded(true);
-    }, 1000);//CONFIG.pageLoadTime);
+    }, CONFIG.pageLoadTime);
 
     return () => clearTimeout(timeoutRef);
   }, [loaded, count]);
