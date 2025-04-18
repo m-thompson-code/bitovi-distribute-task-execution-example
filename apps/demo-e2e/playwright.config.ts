@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 import { nxE2EPreset } from '@nx/playwright/preset';
 import { workspaceRoot } from '@nx/devkit';
-import * as CONFIG from '@generate-stress-tests-config';
+// import * as CONFIG from '@generate-stress-tests-config';
 
 /*
 "targets": {
@@ -30,7 +30,8 @@ const baseURL = process.env['BASE_URL'] || 'http://localhost:4200';
  */
 export default defineConfig({
   ...nxE2EPreset(__filename, { testDir: './src' }),
-  timeout: CONFIG.pageLoadTime + 60_000,
+  // timeout: CONFIG.pageLoadTime + 60_000,
+  timeout: 1_000 + 60_000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL,
