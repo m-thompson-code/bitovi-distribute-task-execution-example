@@ -1,1 +1,121 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  height: 100%;
+  background-color: #121212;
+  color: #FAFAFA;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html {
+  height: 100%;
+}
+
+h1 {
+  margin: 0;
+}
+
+.container {
+  max-width: 600px;
+  padding: 16px;
+}
+
+.loader-section {
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  background: #FF3D00;
+  width: 3px;
+  height: 24px;
+  transform: translateX(-50%);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.overlay {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: max(100vh, 100vw);
+    opacity: .1;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  margin: 0;
+  font-family: inherit;
+
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+
+  &:active {
+    background-color: #0062cc;
+    border-color: #005cbf;
+  }
+
+  &:focus, &:focus-visible, &:focus-within, &:active {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5);
+  }
+}

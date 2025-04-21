@@ -1,4 +1,4 @@
 {
-  "pageLoadTime": 30000,
-  "numberOfTests": 30
+  "pageLoadTime": 1000,
+  "numberOfTests": 600
 }
