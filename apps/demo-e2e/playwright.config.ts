@@ -12,12 +12,20 @@ const baseURL = process.env['BASE_URL'] || 'http://localhost:4200';
  */
 // require('dotenv').config();
 
+const getTimeout = () => {
+  if (typeof CONFIG.pageLoadTime !== 'number') {
+    throw new Error('Unexpected missing pageLoadTime from config.json');
+  }
+
+  return CONFIG.pageLoadTime + 60_000;// Expected load time + 60 seconds
+}
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
   ...nxE2EPreset(__filename, { testDir: './src' }),
-  timeout: CONFIG.pageLoadTime + 60_000,
+  timeout: getTimeout(),
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL,
