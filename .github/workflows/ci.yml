@@ -42,5 +42,4 @@ jobs:
       # - run: npx nx affected -t lint test build e2e-ci
       # - run: npx nx run-many -t e2e-ci
       # - run: npx nx run-many -t e2e
-      - run: npx nx serve generate-stress-tests
       - run: npx nx e2e-ci demo-e2e

@@ -20,6 +20,18 @@
             "projects": "config"
           }
         ]
+      },
+      "e2e-ci--**/*": {
+        "dependsOn": [
+          {
+            "target": "serve",
+            "projects": "generate-stress-tests"
+          },
+          {
+            "target": "build",
+            "projects": "config"
+          }
+        ]
       }
     }
   }
