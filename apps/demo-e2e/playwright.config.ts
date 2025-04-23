@@ -12,12 +12,28 @@ const baseURL = process.env['BASE_URL'] || 'http://localhost:4200';
  */
 // require('dotenv').config();
 
-const getTimeout = () => {
+const getWebServerTimeout = () => {
+  if (typeof CONFIG.serveTime !== 'number') {
+    throw new Error('Unexpected missing serveTime from config.json');
+  }
+
+  return CONFIG.serveTime + 60_000;// Expected serve for application + default 60 seconds
+}
+
+const getTestTimeout = () => {
   if (typeof CONFIG.pageLoadTime !== 'number') {
     throw new Error('Unexpected missing pageLoadTime from config.json');
   }
 
-  return CONFIG.pageLoadTime + 60_000;// Expected load time + 60 seconds
+  return CONFIG.pageLoadTime + 60_000;// Expected load time for single test + default 60 seconds
+}
+
+const getGlobalTimeout = () => {
+  if (typeof CONFIG.pageLoadTime !== 'number') {
+    throw new Error('Unexpected missing pageLoadTime from config.json');
+  }
+
+  return CONFIG.numberOfTests * getTestTimeout() + 3_600_000;// Expected load time for every test + default 1 hour
 }
 
 /**
@@ -25,7 +41,8 @@ const getTimeout = () => {
  */
 export default defineConfig({
   ...nxE2EPreset(__filename, { testDir: './src' }),
-  timeout: getTimeout(),
+  timeout: getTestTimeout(),
+  globalTimeout: getGlobalTimeout(),
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL,
@@ -34,6 +51,7 @@ export default defineConfig({
   },
   /* Run your local dev server before starting the tests */
   webServer: {
+    timeout: getWebServerTimeout(),
     command: 'npx nx run demo:dev',
     url: 'http://localhost:4200',
     reuseExistingServer: !process.env.CI,

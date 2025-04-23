@@ -26,15 +26,19 @@ test('has count title ${index}', async ({ page }) => {
 `;
 
 const main = async () => {
-  console.log(GENERATED_ROOT);
+  console.log('🚀 Generating e2e tests...');
 
   await ensureDir(GENERATED_ROOT);
   await emptyDir(GENERATED_ROOT);
 
-  const promises = Array.from({ length: getNumberOfTests() }, (_, i) => i)
+  const numberOfTests = getNumberOfTests();
+
+  const promises = Array.from({ length: numberOfTests }, (_, i) => i)
     .map(index => writeFile(join(GENERATED_ROOT, `generated-${index}.spec.ts`), generateE2ETest(index)));
 
   await Promise.all(promises);
+
+  console.log(`📝 ${numberOfTests} e2e tests are generated. You can customize behavior at "shared/config/config.json"`);
 };
 
 main();
