@@ -11,14 +11,6 @@
           "projects": "self"
         }
       ]
-    },
-    "e2e-ci": {
-      "dependsOn": [
-        {
-          "target": "generate-tests",
-          "projects": "self"
-        }
-      ]
     }
   },
   "tags": ["scope:demo"],
