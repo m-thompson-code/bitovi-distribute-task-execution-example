@@ -10,10 +10,7 @@
           "target": "generate-tests",
           "projects": "self"
         }
-      ],
-      "options": {
-        "pass-with-no-tests": false
-      }
+      ]
     },
     "e2e-ci": {
       "dependsOn": [
@@ -21,10 +18,7 @@
           "target": "generate-tests",
           "projects": "self"
         }
-      ],
-      "options": {
-        "pass-with-no-tests": false
-      }
+      ]
     }
   },
   "tags": ["scope:demo"],
