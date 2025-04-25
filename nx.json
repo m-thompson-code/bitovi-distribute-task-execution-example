@@ -86,7 +86,13 @@
       "dependsOn": ["^build"]
     },
     "e2e-ci--**/*": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build",
+        {
+          "target": "generate-tests",
+          "projects": "self"
+        }
+      ]
     },
     "@nx/esbuild:esbuild": {
       "cache": true,
