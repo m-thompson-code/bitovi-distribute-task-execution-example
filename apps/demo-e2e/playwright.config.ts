@@ -25,7 +25,7 @@ const getTestTimeout = () => {
     throw new Error('Unexpected missing pageLoadTime from config.json');
   }
 
-  return CONFIG.pageLoadTime + 60_000;// Expected load time for single test + default 60 seconds
+  return CONFIG.pageLoadTime + getWebServerTimeout();// Expected load time for single test + serve time + default 60 seconds
 }
 
 const getGlobalTimeout = () => {
