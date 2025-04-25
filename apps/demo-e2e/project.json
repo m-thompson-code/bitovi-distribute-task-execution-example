@@ -12,7 +12,7 @@
         }
       ],
       "options": {
-        "passWithNoTests": false
+        "pass-with-no-tests": false
       }
     },
     "e2e-ci": {
@@ -23,7 +23,7 @@
         }
       ],
       "options": {
-        "passWithNoTests": false
+        "pass-with-no-tests": false
       }
     }
   },
