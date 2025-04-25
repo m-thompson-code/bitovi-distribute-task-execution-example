@@ -38,11 +38,6 @@ const delayDevStart: () => PluginOption = () => {
 
 export default defineConfig(() => ({
   root: __dirname,
-  resolve: {
-    alias: {
-      "@generate-stress-tests-config": resolve(__dirname, '../../generate-stress-tests-config.json'),
-    },
-  },
   cacheDir: '../../node_modules/.vite/apps/demo',
   server: {
     port: 4200,

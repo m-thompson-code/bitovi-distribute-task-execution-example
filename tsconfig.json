@@ -10,7 +10,7 @@
       "path": "./apps/demo"
     },
     {
-      "path": "./apps/generate-stress-tests"
+      "path": "./tools/stress-tests"
     }
   ]
 }

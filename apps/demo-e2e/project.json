@@ -1,0 +1,26 @@
+{
+  "name": "demo-e2e",
+  "targets": {
+    "generate-tests": {
+      "executor": "@bitovi-distribute-task-execution-example/stress-tests:generate-tests"
+    },
+    "e2e": {
+      "dependsOn": [
+        {
+          "target": "generate-tests",
+          "projects": "self"
+        }
+      ]
+    },
+    "e2e-ci--**/*": {
+      "dependsOn": [
+        {
+          "target": "generate-tests",
+          "projects": "self"
+        }
+      ]
+    }
+  },
+  "tags": ["scope:demo"],
+  "implicitDependencies": ["demo"]
+}

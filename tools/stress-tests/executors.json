@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "generate-tests": {
+      "implementation": "./dist/executors/generate-tests",
+      "schema": "./dist/executors/schema.json",
+      "description": "generate-tests executor"
+    }
+  }
+}

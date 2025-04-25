@@ -10,7 +10,7 @@ const swcJestConfig = JSON.parse(
 swcJestConfig.swcrc = false;
 
 export default {
-  displayName: 'generate-stress-tests',
+  displayName: '@bitovi-distribute-task-execution-example/stress-tests',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

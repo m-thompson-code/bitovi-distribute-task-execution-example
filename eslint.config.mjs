@@ -1,6 +1,14 @@
 import nx from '@nx/eslint-plugin';
 
 export default [
+  {
+    files: ['**/*.json'],
+    // Override or add rules here
+    rules: {},
+    languageOptions: {
+      parser: await import('jsonc-eslint-parser'),
+    },
+  },
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
@@ -22,12 +30,12 @@ export default [
           enforceBuildableLibDependency: true,
           allow: [
             '^@bitovi-distribute-task-execution-example/config$',
-            '^.*/eslint(\\.base)?\\.config\\.[cm]?js$'
+            '^.*/eslint(\\.base)?\\.config\\.[cm]?js$',
           ],
           depConstraints: [
             {
-              "sourceTag": "*",
-              "onlyDependOnLibsWithTags": ["type:config"]
+              sourceTag: '*',
+              onlyDependOnLibsWithTags: ['type:config'],
             },
           ],
         },

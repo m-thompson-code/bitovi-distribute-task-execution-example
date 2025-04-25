@@ -23,6 +23,7 @@
     "@nx/js": "20.7.0",
     "@nx/node": "^20.7.0",
     "@nx/playwright": "20.7.0",
+    "@nx/plugin": "^20.7.0",
     "@nx/react": "20.7.0",
     "@nx/vite": "20.7.0",
     "@nx/web": "20.7.0",
@@ -71,6 +72,7 @@
   "workspaces": [
     "apps/*",
     "stress-test",
-    "shared/*"
+    "shared/*",
+    "tools/*"
   ]
 }

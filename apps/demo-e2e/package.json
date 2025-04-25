@@ -4,35 +4,6 @@
   "private": true,
   "nx": {
     "tags": ["scope:demo"],
-    "implicitDependencies": [
-      "demo",
-      "generate-stress-tests"
-    ],
-    "targets": {
-      "e2e": {
-        "dependsOn": [
-          {
-            "target": "serve",
-            "projects": "generate-stress-tests"
-          },
-          {
-            "target": "build",
-            "projects": "config"
-          }
-        ]
-      },
-      "e2e-ci--**/*": {
-        "dependsOn": [
-          {
-            "target": "serve",
-            "projects": "generate-stress-tests"
-          },
-          {
-            "target": "build",
-            "projects": "config"
-          }
-        ]
-      }
-    }
+    "implicitDependencies": ["demo"]
   }
 }

@@ -1,10 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@generate-stress-tests-config": ["../../generate-stress-tests-config.json"]
-    },
     "allowJs": true,
     "outDir": "out-tsc/playwright",
     "sourceMap": false

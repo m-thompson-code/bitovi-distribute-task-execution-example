@@ -12,7 +12,9 @@
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ]
   },
   "nxCloudId": "67ec1590a17e2408a2b0c008",
   "plugins": [
@@ -75,6 +77,10 @@
     }
   ],
   "targetDefaults": {
+    "generate-tests": {
+      "cache": true,
+      "inputs": ["{workspaceRoot}/shared/config/config.json"]
+    },
     "test": {
       "dependsOn": ["^build"]
     },
@@ -82,6 +88,11 @@
       "dependsOn": ["^build"]
     },
     "@nx/esbuild:esbuild": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "@nx/js:tsc": {
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
