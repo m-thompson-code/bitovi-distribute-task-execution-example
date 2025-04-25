@@ -78,6 +78,7 @@
   ],
   "targetDefaults": {
     "generate-tests": {
+      "parallelism": false,
       "cache": true,
       "inputs": ["{workspaceRoot}/shared/config/config.json"]
     },
