@@ -87,11 +87,7 @@
     },
     "e2e-ci--**/*": {
       "dependsOn": [
-        "^build",
-        {
-          "target": "generate-tests",
-          "projects": "self"
-        }
+        "^build"
       ]
     },
     "@nx/esbuild:esbuild": {
