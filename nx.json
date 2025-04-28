@@ -82,6 +82,11 @@
       "cache": true,
       "inputs": ["{workspaceRoot}/shared/config/config.json"]
     },
+    "verify-tests": {
+      "parallelism": false,
+      "cache": true,
+      "inputs": ["{workspaceRoot}/shared/config/config.json"]
+    },
     "test": {
       "dependsOn": ["^build"]
     },

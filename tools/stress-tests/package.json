@@ -44,6 +44,8 @@
     }
   },
   "dependencies": {
+    "glob": "^11.0.2",
+    "fs-extra": "^11.3.0",
     "@nx/devkit": "20.7.0",
     "tslib": "^2.3.0"
   },

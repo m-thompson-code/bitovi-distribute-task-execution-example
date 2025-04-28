@@ -1,9 +1,10 @@
-import { createProjectGraphAsync, PromiseExecutor } from '@nx/devkit';
-import { join, resolve } from 'path';
+import { PromiseExecutor } from '@nx/devkit';
+import { join } from 'path';
 import { GenerateTestsExecutorSchema } from './schema';
 import { emptyDir, ensureDir, writeFile } from 'fs-extra';
 
 import { CONFIG } from "@bitovi-distribute-task-execution-example/config";
+import { getGeneratedDir } from '../utilities';
 
 const getNumberOfTests = () => {
   if (typeof CONFIG.numberOfTests !== 'number') {
@@ -31,30 +32,21 @@ const runExecutor: PromiseExecutor<GenerateTestsExecutorSchema> = async (
 ) => {
   console.log('🚀 Generating e2e tests...');
 
-  const projectName = context.projectName;
+  const { fullPath, outputPath } = await getGeneratedDir(context);
 
-  if (!projectName) {
-    console.error('Unexpected missing project name from context');
-    return { success: false };
-  }
-
-  const projectGraph = await createProjectGraphAsync();
-  const projectRoot = projectGraph.nodes[projectName].data.root;
-  const generatedDir = resolve(context.root, projectRoot, 'src/generated');
-
-  await ensureDir(generatedDir);
-  await emptyDir(generatedDir);
+  await ensureDir(fullPath);
+  await emptyDir(fullPath);
 
   const numberOfTests = getNumberOfTests();
 
   const promises = Array.from({ length: numberOfTests }, (_, i) => i)
-    .map(index => writeFile(join(generatedDir, `generated-${index}.spec.ts`), generateTest(index)));
+    .map(index => writeFile(join(fullPath, `generated-${index}.spec.ts`), generateTest(index)));
 
   await Promise.all(promises);
 
   console.log(`📝 ${numberOfTests} e2e tests are generated. You can customize behavior at "shared/config/config.json"`);
 
-  return { success: true, outputs: [`${projectRoot}/src/generated`] };
+  return { success: true, outputs: [outputPath] };
 };
 
 export default runExecutor;

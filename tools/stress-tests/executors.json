@@ -1,9 +1,14 @@
 {
   "executors": {
     "generate-tests": {
-      "implementation": "./dist/executors/generate-tests",
-      "schema": "./dist/executors/schema.json",
+      "implementation": "./dist/executors/generate-tests/index",
+      "schema": "./dist/executors/generate-tests/schema.json",
       "description": "generate-tests executor"
+    },
+    "verify-tests": {
+      "implementation": "./dist/executors/verify-tests/index",
+      "schema": "./dist/executors/verify-tests/schema.json",
+      "description": "verify-tests executor"
     }
   }
 }

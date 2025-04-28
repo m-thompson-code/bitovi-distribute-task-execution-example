@@ -4,6 +4,9 @@
     "generate-tests": {
       "executor": "@bitovi-distribute-task-execution-example/stress-tests:generate-tests"
     },
+    "verify-tests": {
+      "executor": "@bitovi-distribute-task-execution-example/stress-tests:verify-tests"
+    },
     "e2e": {
       "dependsOn": [
         {
@@ -15,7 +18,7 @@
     "e2e-ci": {
       "dependsOn": [
         {
-          "target": "generate-tests",
+          "target": "verify-tests",
           "projects": "self"
         }
       ]
