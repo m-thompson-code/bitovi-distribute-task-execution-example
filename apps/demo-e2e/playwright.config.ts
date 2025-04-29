@@ -21,16 +21,24 @@ const getWebServerTimeout = () => {
 }
 
 const getTestTimeout = () => {
-  if (typeof CONFIG.pageLoadTime !== 'number') {
+  let pageLoadTime: null | number = null;
+
+  if (Array.isArray(CONFIG.pageLoadTime)) {
+    pageLoadTime = Math.max(...CONFIG.pageLoadTime);
+  } else {
+    pageLoadTime = CONFIG.pageLoadTime;
+  }
+
+  if (typeof pageLoadTime !== 'number') {
     throw new Error('Unexpected missing pageLoadTime from config.json');
   }
 
-  return CONFIG.pageLoadTime + getWebServerTimeout();// Expected load time for single test + serve time + default 60 seconds
+  return pageLoadTime + getWebServerTimeout();// Expected load time for single test + serve time + default 60 seconds
 }
 
 const getGlobalTimeout = () => {
-  if (typeof CONFIG.pageLoadTime !== 'number') {
-    throw new Error('Unexpected missing pageLoadTime from config.json');
+  if (typeof CONFIG.numberOfTests !== 'number') {
+    throw new Error('Unexpected missing numberOfTests from config.json');
   }
 
   return CONFIG.numberOfTests * getTestTimeout() + 3_600_000;// Expected load time for every test + default 1 hour

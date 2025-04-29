@@ -1,13 +1,21 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { CONFIG } from '@bitovi-distribute-task-execution-example/config';
 
-const getPageLoad = () => {
-  if (typeof CONFIG.pageLoadTime !== 'number') {
+const getPageLoad = (index: number) => {
+  let pageLoadTime: number | null = null;
+
+  if (Array.isArray(CONFIG.pageLoadTime)) {
+    pageLoadTime = CONFIG.pageLoadTime[index % CONFIG.pageLoadTime.length];
+  } else {
+    pageLoadTime = CONFIG.pageLoadTime;
+  }
+
+  if (typeof pageLoadTime !== 'number') {
     throw new Error('Unexpected missing pageLoadTime from config.json');
   }
 
-  return CONFIG.pageLoadTime;
+  return pageLoadTime;
 }
 
 const getCount = (value: unknown): number => {
@@ -35,7 +43,7 @@ export default function AppComponent() {
 
     const timeoutRef = setTimeout(() => {
       setLoaded(true);
-    }, getPageLoad());
+    }, getPageLoad(count));
 
     return () => clearTimeout(timeoutRef);
   }, [count]);

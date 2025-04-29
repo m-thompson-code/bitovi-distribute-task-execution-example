@@ -17,12 +17,14 @@ const getNumberOfTests = () => {
 const generateTest = (index: number) => `// Generated file
 import { test, expect } from '@playwright/test';
 
-test('has count title ${index}', async ({ page }) => {
+test('has count title ${index}', async ({ page }, testInfo) => {
   await page.goto('/${index}');
-
   const innerText = await page.locator('h1.header').innerText();
-  console.log('innerText', innerText);
   expect(innerText).toContain('${index}');
+});
+
+test.afterEach(async ({}, testInfo) => {
+  console.log(\`Test ${index} took \${testInfo.duration}ms\`);
 });
 `;
 

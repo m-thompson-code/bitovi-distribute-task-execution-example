@@ -1,10 +1,12 @@
 // Generated file
 import { test, expect } from '@playwright/test';
 
-test('has count title 1', async ({ page }) => {
+test('has count title 1', async ({ page }, testInfo) => {
   await page.goto('/1');
-
   const innerText = await page.locator('h1.header').innerText();
-  console.log('innerText', innerText);
   expect(innerText).toContain('1');
+});
+
+test.afterEach(async ({}, testInfo) => {
+  console.log(`Test 1 took ${testInfo.duration}ms`);
 });

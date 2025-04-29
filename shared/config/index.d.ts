@@ -1,5 +1,5 @@
 export declare const CONFIG: {
-  pageLoadTime: number;
   numberOfTests: number;
+  pageLoadTime: number | number[];
   serveTime: number;
 };
