@@ -62,7 +62,7 @@ export default defineConfig({
     timeout: getWebServerTimeout(),
     command: 'npx nx run demo:dev',
     url: 'http://localhost:4200',
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: true,//!process.env.CI,
     cwd: workspaceRoot,
   },
   projects: [
