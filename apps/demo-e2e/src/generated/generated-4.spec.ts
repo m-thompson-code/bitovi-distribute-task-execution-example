@@ -7,6 +7,6 @@ test('has count title 4', async ({ page }, testInfo) => {
   expect(innerText).toContain('4');
 });
 
-test.afterEach(async ({}, testInfo) => {
+test.afterEach(async (_, testInfo) => {
   console.log(`Test 4 took ${testInfo.duration}ms`);
 });

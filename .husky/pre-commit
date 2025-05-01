@@ -1,1 +1,9 @@
-npx nx verify-tests demo-e2e
+echo "Running pre-commit script..."
+
+# Generate files
+npx npx nx run-many -t verify-tests
+
+# Add the generated files
+git add apps/demo-e2e/src/generated/
+
+echo "Generated files staged for commit."
