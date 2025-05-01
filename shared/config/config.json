@@ -1,5 +1,5 @@
 {
   "numberOfTests": 12,
-  "pageLoadTime": 30000,
+  "pageLoadTime": [200, 3000, 30000],
   "serveTime": 60000
 }
