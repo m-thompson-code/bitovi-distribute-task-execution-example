@@ -5,7 +5,13 @@
       "executor": "@bitovi-distribute-task-execution-example/stress-tests:generate-tests"
     },
     "verify-tests": {
-      "executor": "@bitovi-distribute-task-execution-example/stress-tests:verify-tests"
+      "executor": "@bitovi-distribute-task-execution-example/stress-tests:verify-tests",
+      "dependsOn": [
+        {
+          "target": "generate-tests",
+          "projects": "self"
+        }
+      ]
     },
     "e2e": {
       "dependsOn": [
