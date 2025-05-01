@@ -13,7 +13,8 @@
       "!{projectRoot}/test-setup.[jt]s"
     ],
     "sharedGlobals": [
-      "{workspaceRoot}/.github/workflows/ci.yml"
+      "{workspaceRoot}/.github/workflows/ci.yml",
+      "{workspaceRoot}/cache-bust-at.txt"
     ]
   },
   "nxCloudId": "67ec1590a17e2408a2b0c008",
@@ -66,8 +67,7 @@
     {
       "plugin": "@nx/playwright/plugin",
       "options": {
-        "targetName": "e2e",
-        "ciTargetName": "e2e-ci"
+        "targetName": "e2e"
       }
     },
     {

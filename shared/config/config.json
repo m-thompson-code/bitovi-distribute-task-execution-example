@@ -1,5 +1,6 @@
 {
   "numberOfTests": 12,
   "pageLoadTime": 30000,
-  "serveTime": 60000
+  "serveTime": 60000,
+  "preventCache": true
 }

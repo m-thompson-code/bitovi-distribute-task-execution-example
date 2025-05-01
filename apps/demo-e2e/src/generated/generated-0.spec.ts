@@ -1,14 +1,12 @@
 // Generated file
 import { test, expect } from '@playwright/test';
 
-test('has count title 0', async ({ page }, testInfo) => {
+test('has count title 0', async ({ page }) => {
   await page.goto('/0');
   const innerText = await page.locator('h1.header').innerText();
-  // HELLO WORLD
   expect(innerText).toContain('0');
 });
 
-test.afterEach(async ({}, testInfo) => {
+test.afterEach(async (_, testInfo) => {
   console.log(`Test 0 took ${testInfo.duration}ms`);
 });
-// Force new results
