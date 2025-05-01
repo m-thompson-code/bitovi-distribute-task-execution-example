@@ -23,7 +23,7 @@ test('has count title ${index}', async ({ page }, testInfo) => {
   expect(innerText).toContain('${index}');
 });
 
-test.afterEach(async ({}, testInfo) => {
+test.afterEach(async (_, testInfo) => {
   console.log(\`Test ${index} took \${testInfo.duration}ms\`);
 });
 `;
