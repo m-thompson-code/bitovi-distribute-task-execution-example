@@ -11,3 +11,4 @@ test('has count title 0', async ({ page }, testInfo) => {
 test.afterEach(async ({}, testInfo) => {
   console.log(`Test 0 took ${testInfo.duration}ms`);
 });
+// Force new results
