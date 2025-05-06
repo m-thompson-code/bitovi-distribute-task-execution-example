@@ -86,12 +86,16 @@
     "verify-tests": {
       "parallelism": false,
       "cache": true,
-      "inputs": ["{workspaceRoot}/shared/config/config.json"]
+      "inputs": [
+        "{workspaceRoot}/shared/config/config.json",
+        "{workspaceRoot}/nonce.txt"
+      ]
     },
     "test": {
       "dependsOn": ["^build"]
     },
     "e2e-ci--**/*": {
+      "inputs": ["{workspaceRoot}/nonce.txt"],
       "dependsOn": [
         "^build"
       ]

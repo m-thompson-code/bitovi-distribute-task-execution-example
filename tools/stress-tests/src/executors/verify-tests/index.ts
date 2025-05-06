@@ -2,11 +2,17 @@ import { PromiseExecutor } from '@nx/devkit';
 import { join } from 'path';
 import { VerifyTestsExecutorSchema } from './schema';
 import { glob } from 'glob'
-
 import { CONFIG } from "@bitovi-distribute-task-execution-example/config";
 import { getGeneratedDir } from '../utilities';
+import { writeFile } from 'fs-extra';
 
+const getPreventCacheFlag = () => {
+  return !!CONFIG.preventCache;
+}
 
+const generateNonce = () => `# This is a generated file to prevent e2e tests from being cached.
+${Date.now()}
+`
 
 const getNumberOfTests = () => {
   if (typeof CONFIG.numberOfTests !== 'number') {
@@ -21,6 +27,13 @@ const runExecutor: PromiseExecutor<VerifyTestsExecutorSchema> = async (
   context
 ) => {
   console.log('🔍 Verifying e2e tests...');
+
+  const shouldGenerateNonce = getPreventCacheFlag();
+
+  if (shouldGenerateNonce) {
+    console.log('🔃 Preventing e2e tast cache...');
+    await writeFile(join(context.root, 'nonce.txt'), generateNonce());
+  }
 
   const numberOfTests = getNumberOfTests();
 

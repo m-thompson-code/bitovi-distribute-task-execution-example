@@ -16,7 +16,7 @@
     "e2e": {
       "dependsOn": [
         {
-          "target": "generate-tests",
+          "target": "verify-tests",
           "projects": "self"
         }
       ]

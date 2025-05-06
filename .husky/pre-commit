@@ -5,5 +5,6 @@ npx npx nx run-many -t verify-tests
 
 # Add the generated files
 git add apps/demo-e2e/src/generated/
+git add nonce.txt
 
 echo "Generated files staged for commit."
