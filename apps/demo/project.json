@@ -1,0 +1,7 @@
+{
+  "targets": {
+    "serve": {
+      "continuous": true
+    }
+  }
+}
