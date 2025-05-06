@@ -95,8 +95,7 @@
       "dependsOn": ["^build"]
     },
     "e2e-ci--**/*": {
-      "dependsOn": ["^build"],
-      "inputs": ["{workspaceRoot}/nonce.txt"]
+      "dependsOn": ["^build"]
     },
     "@nx/esbuild:esbuild": {
       "cache": true,

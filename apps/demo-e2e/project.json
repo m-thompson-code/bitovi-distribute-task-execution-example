@@ -18,10 +18,6 @@
         {
           "target": "verify-tests",
           "projects": "self"
-        },
-        {
-          "target": "dev",
-          "projects": "demo"
         }
       ]
     }
