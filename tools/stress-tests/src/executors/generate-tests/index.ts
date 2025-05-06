@@ -17,13 +17,14 @@ const getNumberOfTests = () => {
 const generateTest = (index: number) => `// Generated file
 import { test, expect } from '@playwright/test';
 
-test('has count title ${index}', async ({ page }, testInfo) => {
+test('has count title ${index}', async ({ page }) => {
   await page.goto('/${index}');
   const innerText = await page.locator('h1.header').innerText();
   expect(innerText).toContain('${index}');
 });
 
-test.afterEach(async (_, testInfo) => {
+// eslint-disable-next-line no-empty-pattern
+test.afterEach(async ({}, testInfo) => {
   console.log(\`Test ${index} took \${testInfo.duration}ms\`);
 });
 `;
